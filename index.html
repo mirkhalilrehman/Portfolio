@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Mir Khalil | AI Engineer Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+--ink:#0f0f0f;--ink2:#3a3a3a;--ink3:#7a7a7a;
+--bg:#fafaf8;--surface:#f2f1ed;
+--accent:#1a4a3a;--accent2:#2e7a5c;--accent-light:#e4f0eb;
+--line:#e0ded8;--white:#ffffff;
+--mono:'DM Mono',monospace;--serif:'DM Serif Display',Georgia,serif;--sans:'Outfit',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.6;font-size:16px}
+
+nav{position:sticky;top:0;z-index:100;background:rgba(250,250,248,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between;height:60px}
+.nav-logo{font-family:var(--mono);font-size:13px;font-weight:500;color:var(--accent);letter-spacing:.04em;text-decoration:none}
+.nav-links{display:flex;gap:1.5rem;list-style:none;align-items:center}
+.nav-links a{font-size:13px;color:var(--ink2);text-decoration:none;letter-spacing:.02em;transition:color .2s}
+.nav-links a:hover{color:var(--accent)}
+.nav-cta{background:var(--accent);color:#fff!important;padding:6px 16px;border-radius:40px;font-size:13px;font-weight:500;text-decoration:none;transition:background .2s}
+.nav-cta:hover{background:var(--accent2)!important}
+
+/* HERO */
+.hero-wrap{max-width:1200px;margin:0 auto}
+.hero{min-height:calc(100vh - 60px);display:grid;grid-template-columns:1fr 420px;gap:4rem;align-items:center;padding:6rem 5rem 4rem}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:var(--accent-light);color:var(--accent);font-family:var(--mono);font-size:11px;font-weight:500;padding:5px 14px;border-radius:40px;letter-spacing:.06em;margin-bottom:1.5rem}
+.hero-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent2)}
+.hero h1{font-family:var(--serif);font-size:clamp(2.4rem,4.5vw,3.8rem);line-height:1.1;color:var(--ink);margin-bottom:1.5rem;font-weight:400}
+.hero h1 em{font-style:italic;color:var(--accent2)}
+.hero-bio{font-size:15px;color:var(--ink2);line-height:1.75;max-width:520px;margin-bottom:2.5rem;font-weight:300}
+.hero-actions{display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+.btn-primary{background:var(--accent);color:#fff;padding:12px 28px;border-radius:40px;font-size:14px;font-weight:500;text-decoration:none;transition:background .2s,transform .15s;display:inline-block}
+.btn-primary:hover{background:var(--accent2);transform:translateY(-1px)}
+.btn-outline{border:1px solid var(--line);color:var(--ink2);padding:12px 24px;border-radius:40px;font-size:14px;text-decoration:none;transition:border-color .2s,color .2s;display:inline-block}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+
+/* PROFILE CARD */
+.profile-card{background:var(--white);border:1px solid var(--line);border-radius:24px;padding:2rem;width:100%;max-width:360px}
+.profile-photo{width:88px;height:88px;border-radius:50%;object-fit:cover;object-position:center top;margin-bottom:1.2rem;border:3px solid var(--accent-light)}
+.profile-name{font-family:var(--serif);font-size:1.25rem;margin-bottom:4px;color:var(--ink)}
+.profile-title{font-size:11px;font-family:var(--mono);color:var(--accent2);letter-spacing:.05em;margin-bottom:1.5rem}
+.profile-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:1.5rem}
+.stat-box{background:var(--surface);border-radius:12px;padding:12px 14px}
+.stat-num{font-family:var(--serif);font-size:1.5rem;color:var(--accent);line-height:1;margin-bottom:2px}
+.stat-label{font-size:10px;color:var(--ink3);font-family:var(--mono)}
+.profile-badges{display:flex;flex-wrap:wrap;gap:6px}
+.badge{font-size:11px;font-family:var(--mono);padding:4px 10px;border-radius:20px;background:var(--accent-light);color:var(--accent)}
+
+/* SECTION */
+section{padding:5rem 5rem;max-width:1200px;margin:0 auto}
+.section-label{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--accent2);text-transform:uppercase;margin-bottom:.8rem}
+.section-title{font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:400;line-height:1.2;color:var(--ink);margin-bottom:2.5rem}
+.section-divider{border:none;border-top:1px solid var(--line);margin:0 5rem}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:4rem;align-items:start}
+.about-text p{font-size:15px;color:var(--ink2);line-height:1.8;font-weight:300;margin-bottom:1.2rem}
+.highlight-item{border-left:3px solid var(--accent2);padding:12px 16px;border-radius:0 8px 8px 0;background:var(--white);border:1px solid var(--line);border-left:3px solid var(--accent2);margin-bottom:12px}
+.highlight-item strong{font-family:var(--mono);font-size:11px;color:var(--accent);display:block;margin-bottom:4px}
+.highlight-item p{font-size:13px;color:var(--ink2);line-height:1.5;margin:0}
+
+/* SKILLS */
+.skills-bg{background:var(--surface);margin:0;padding:5rem 0}
+.skills-inner{max-width:1200px;margin:0 auto;padding:0 5rem}
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.skill-category{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:1.25rem}
+.skill-cat-title{font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--accent2);text-transform:uppercase;margin-bottom:.8rem;padding-bottom:.6rem;border-bottom:1px solid var(--line)}
+.skill-tags{display:flex;flex-wrap:wrap;gap:5px}
+.skill-tag{font-size:11px;font-family:var(--mono);padding:4px 9px;border-radius:6px;background:var(--surface);color:var(--ink2);border:1px solid var(--line)}
+
+/* PROJECTS */
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.project-card{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:1.5rem;display:flex;flex-direction:column;gap:.8rem}
+.project-icon{width:40px;height:40px;border-radius:10px;background:var(--accent-light);display:flex;align-items:center;justify-content:center}
+.project-icon svg{width:20px;height:20px;stroke:var(--accent)}
+.project-name{font-family:var(--serif);font-size:1rem;color:var(--ink);line-height:1.3}
+.project-desc{font-size:13px;color:var(--ink2);line-height:1.6;font-weight:300;flex:1}
+.project-tags{display:flex;flex-wrap:wrap;gap:4px}
+.project-tag{font-size:10px;font-family:var(--mono);padding:3px 8px;border-radius:4px;background:var(--surface);color:var(--ink3);border:1px solid var(--line)}
+.project-link{font-size:11px;font-family:var(--mono);color:var(--accent2);text-decoration:none;display:inline-flex;align-items:center;gap:4px;margin-top:4px}
+.project-link:hover{color:var(--accent)}
+
+/* TESTIMONIALS */
+.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.testimonial-card{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:1.5rem;display:flex;flex-direction:column;gap:.8rem}
+.testimonial-stars{display:flex;gap:2px}
+.star{color:#f4a832;font-size:13px}
+.testimonial-text{font-size:13px;color:var(--ink2);line-height:1.7;font-weight:300;font-style:italic;flex:1}
+.testimonial-text::before{content:'\201C';color:var(--accent2);font-family:var(--serif);font-size:1.3rem;line-height:0;vertical-align:-.3em;margin-right:2px}
+.testimonial-author{display:flex;align-items:center;gap:8px;padding-top:.6rem;border-top:1px solid var(--line)}
+.author-avatar{width:30px;height:30px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:#fff;font-family:var(--mono)}
+.author-name{font-size:12px;font-weight:500;color:var(--ink);font-family:var(--mono)}
+.author-platform{font-size:10px;color:var(--ink3)}
+
+/* CONTACT */
+.contact-bg{background:var(--accent);margin:0;padding:5rem 0}
+.contact-inner{max-width:1200px;margin:0 auto;padding:0 5rem;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.contact-text .section-label{color:rgba(255,255,255,.5)}
+.contact-title{font-family:var(--serif);font-size:clamp(1.8rem,3.5vw,2.8rem);color:#fff;line-height:1.2;margin-bottom:1rem;font-weight:400}
+.contact-subtitle{font-size:14px;color:rgba(255,255,255,.7);font-weight:300;line-height:1.7}
+.contact-links{display:flex;flex-direction:column;gap:12px}
+.contact-link{display:flex;align-items:center;gap:14px;padding:14px 18px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:12px;text-decoration:none;transition:background .2s}
+.contact-link:hover{background:rgba(255,255,255,.15)}
+.contact-link-icon{width:34px;height:34px;border-radius:8px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.contact-link-label{font-size:10px;color:rgba(255,255,255,.5);font-family:var(--mono);display:block}
+.contact-link-value{font-size:13px;color:#fff;font-weight:400}
+
+footer{text-align:center;padding:2rem;border-top:1px solid var(--line);font-size:11px;color:var(--ink3);font-family:var(--mono)}
+
+@media(max-width:900px){
+.hero{grid-template-columns:1fr;padding:3rem 2rem;gap:2rem}
+.hero-visual{display:none}
+section{padding:3.5rem 2rem}
+.skills-inner,.contact-inner{padding:0 2rem}
+.skills-grid,.projects-grid,.testimonials-grid{grid-template-columns:1fr}
+.about-grid{grid-template-columns:1fr;gap:2rem}
+.contact-inner{grid-template-columns:1fr;gap:3rem}
+.section-divider{margin:0 2rem}
+nav{padding:0 1.5rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Mir Khalil UR Rehman</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#contact" class="nav-cta">Hire Me</a></li>
+  </ul>
+</nav>
+
+<div class="hero-wrap">
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-tag">Available for Projects</div>
+    <h1>AI & Automation<br><em>Specialist</em></h1>
+    <p class="hero-bio">MS in Artificial Intelligence · Senior ML Engineer at Fortune 500 · Building intelligent, scalable solutions that create measurable business impact.</p>
+    <div class="hero-actions">
+      <a href="https://www.fiverr.com/users/mir_khalil317" target="_blank" class="btn-primary">View on Fiverr</a>
+      <a href="#about" class="btn-outline">Learn More</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="profile-card">
+      <img class="profile-photo" src="2.jpg" alt="Mir Khalil">
+      <div style="display:none;width:88px;height:88px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));align-items:center;justify-content:center;font-family:var(--serif);font-size:26px;color:#fff;margin-bottom:1.2rem">MK</div>
+      <div class="profile-name">Mir Khalil Ur Rehman</div>
+      <div class="profile-title">AI / ML / Automation Engineer</div>
+      <div class="profile-stats">
+        <div class="stat-box"><div class="stat-num">5.0</div><div class="stat-label">Fiverr Rating</div></div>
+        <div class="stat-box"><div class="stat-num">BS+MS</div><div class="stat-label">AI Degrees</div></div>
+        <div class="stat-box"><div class="stat-num">F500</div><div class="stat-label">Industry Exp.</div></div>
+        <div class="stat-box"><div class="stat-num">3 yrs</div><div class="stat-label">ML Lecturer</div></div>
+      </div>
+      <div class="profile-badges">
+        <span class="badge">Python</span><span class="badge">TensorFlow</span><span class="badge">n8n</span><span class="badge">PyTorch</span><span class="badge">NLP</span>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<hr class="section-divider"/>
+
+<!-- ABOUT -->
+<section id="about">
+  
+  <h2 class="section-title">Background & Expertise</h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>I'm Mir Khalil Ur Rehman, an AI and Automation Specialist with a BS in Computer Science and an MS in Artificial Intelligence. I bring both industry and academic experience, having worked as a Senior Machine Learning Engineer at a Fortune 500 company.</p>
+      <p>For three years I served as a Lecturer in Applied Machine Learning, giving me a unique ability to communicate complex AI concepts clearly — both to technical teams and business stakeholders.</p>
+      <p>I focus on building intelligent, scalable, and business-oriented AI solutions that solve real-world problems and create measurable impact.</p>
+    </div>
+    <div>
+      <div class="highlight-item"><strong>Academic Excellence</strong><p>BS Computer Science + MS Artificial Intelligence — deep theoretical grounding with hands-on research.</p></div>
+      <div class="highlight-item"><strong>Enterprise Experience</strong><p>Senior ML Engineer at a Fortune 500 company — shipped production-grade models at scale.</p></div>
+      <div class="highlight-item"><strong>Teaching Background</strong><p>3 years as Applied ML Lecturer — ability to explain, document, and deliver with clarity.</p></div>
+      <div class="highlight-item"><strong>End-to-End Delivery</strong><p>From data pipelines to deployment, automation, and business dashboards.</p></div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider"/>
+
+<!-- SKILLS -->
+<div class="skills-bg" id="skills">
+  <div class="skills-inner">
+   
+    <h2 class="section-title">Skills & Tools</h2>
+    <div class="skills-grid">
+      <div class="skill-category"><div class="skill-cat-title">Languages & Databases</div><div class="skill-tags"><span class="skill-tag">Python</span><span class="skill-tag">Java</span><span class="skill-tag">C++</span><span class="skill-tag">JavaScript</span><span class="skill-tag">SQL</span><span class="skill-tag">PostgreSQL</span></div></div>
+      <div class="skill-category"><div class="skill-cat-title">ML & Deep Learning</div><div class="skill-tags"><span class="skill-tag">TensorFlow</span><span class="skill-tag">PyTorch</span><span class="skill-tag">Keras</span><span class="skill-tag">Scikit-Learn</span><span class="skill-tag">OpenCV</span><span class="skill-tag">NLP</span></div></div>
+      <div class="skill-category"><div class="skill-cat-title">Data Analysis & Viz</div><div class="skill-tags"><span class="skill-tag">NumPy</span><span class="skill-tag">Pandas</span><span class="skill-tag">Matplotlib</span><span class="skill-tag">Seaborn</span><span class="skill-tag">Tableau</span><span class="skill-tag">Power BI</span></div></div>
+      <div class="skill-category"><div class="skill-cat-title">Automation & Workflow</div><div class="skill-tags"><span class="skill-tag">n8n</span><span class="skill-tag">Make</span><span class="skill-tag">Zapier</span><span class="skill-tag">API Integration</span><span class="skill-tag">Workflow Automation</span></div></div>
+      <div class="skill-category"><div class="skill-cat-title">Data Engineering</div><div class="skill-tags"><span class="skill-tag">ETL Pipelines</span><span class="skill-tag">Feature Engineering</span><span class="skill-tag">Data Wrangling</span><span class="skill-tag">Data Cleaning</span></div></div>
+      <div class="skill-category"><div class="skill-cat-title">Cloud & Tools</div><div class="skill-tags"><span class="skill-tag">Docker</span><span class="skill-tag">Streamlit</span><span class="skill-tag">Git</span><span class="skill-tag">GitHub</span><span class="skill-tag">Postman</span><span class="skill-tag">Notion</span></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  
+  <h2 class="section-title">Featured Projects</h2>
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <div class="project-icon">
+        <svg fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      </div>
+      <div class="project-name">VirtualFit — Virtual Try-On for Fashion</div>
+      <p class="project-desc">An AI-powered virtual try-on platform that allows users to visualize clothing items on digital models before purchasing online — improving customer confidence and the e-commerce experience.</p>
+      <div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">Deep Learning</span><span class="project-tag">Computer Vision</span><span class="project-tag">Flask</span><span class="project-tag">JavaScript</span></div>
+      <span class="project-link">↗ GitHub / Demo on Request</span>
+    </div>
+
+    <div class="project-card">
+      <div class="project-icon">
+        <svg fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+      </div>
+      <div class="project-name">Jaundice Detection via Eye Images</div>
+      <p class="project-desc">A computer vision system that predicts jaundice by analyzing eye images using deep learning. Designed to assist in early medical screening through non-invasive image-based diagnosis.</p>
+      <div class="project-tags"><span class="project-tag">TensorFlow</span><span class="project-tag">MobileNetV2</span><span class="project-tag">CNN</span><span class="project-tag">Python</span><span class="project-tag">Google Colab</span></div>
+      <span class="project-link">↗ Research / Medical Screening</span>
+    </div>
+
+    <div class="project-card">
+      <div class="project-icon">
+        <svg fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h5l3 3v5h-8V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+      </div>
+      <div class="project-name">Car Diminished Value Prediction</div>
+      <p class="project-desc">An AI valuation system that estimates a vehicle's diminished value after an accident by analyzing accident history, repair severity, age, mileage, and market trends — helping insurers and dealerships determine fair post-accident value.</p>
+      <div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">ML / Regression</span><span class="project-tag">Scikit-learn</span><span class="project-tag">Pandas</span><span class="project-tag">Streamlit</span></div>
+      <span class="project-link">↗ Private Project</span>
+    </div>
+
+  </div>
+</section>
+
+<hr class="section-divider"/>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+ 
+  <h2 class="section-title">What Clients Say</h2>
+  <div class="testimonials-grid">
+    <div class="testimonial-card"><div class="testimonial-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><p class="testimonial-text">Mir Khalil delivered the best results, responded quickly and understood the requirements thoroughly. I will definitely work with him again.</p><div class="testimonial-author"><div class="author-avatar">W</div><div><div class="author-name">wabdul626</div><div class="author-platform">Fiverr Client</div></div></div></div>
+    <div class="testimonial-card"><div class="testimonial-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><p class="testimonial-text">He was very fast and efficient with his work. Listened to my requests and delivered! Thank you!</p><div class="testimonial-author"><div class="author-avatar">D</div><div><div class="author-name">drronfulmore</div><div class="author-platform">Fiverr Client</div></div></div></div>
+    <div class="testimonial-card"><div class="testimonial-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><p class="testimonial-text">Delivered exactly what I needed and even better.</p><div class="testimonial-author"><div class="author-avatar">D</div><div><div class="author-name">drronfulmore</div><div class="author-platform">Fiverr Client</div></div></div></div>
+    <div class="testimonial-card"><div class="testimonial-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><p class="testimonial-text">Working with Mir was so easy. He is very knowledgeable and timely. Would recommend 10 out of 10.</p><div class="testimonial-author"><div class="author-avatar">D</div><div><div class="author-name">dhavemax</div><div class="author-platform">Fiverr Client</div></div></div></div>
+    <div class="testimonial-card"><div class="testimonial-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><p class="testimonial-text">Great service! Will definitely be back.</p><div class="testimonial-author"><div class="author-avatar">P</div><div><div class="author-name">pauleff</div><div class="author-platform">Fiverr Client</div></div></div></div>
+    <div class="testimonial-card" style="background:var(--accent);border-color:var(--accent);">
+      <div style="font-family:var(--serif);font-size:2rem;color:rgba(255,255,255,.2);line-height:1">★★★★★</div>
+      <p style="font-size:1.6rem;font-family:var(--serif);color:#fff;font-weight:400;line-height:1.1;flex:1">All 5-star ratings.</p>
+      <p style="font-size:12px;color:rgba(255,255,255,.6);font-family:var(--mono)">Communication · Quality · Value — perfect scores across every engagement.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider"/>
+
+<!-- CONTACT -->
+<div class="contact-bg" id="contact">
+  <div class="contact-inner">
+    <div class="contact-text">
+      
+      <h2 class="contact-title">Ready to build something intelligent?</h2>
+      <p class="contact-subtitle">Whether it's a machine learning model, an automation workflow, or a data pipeline — let's create measurable impact together.</p>
+    </div>
+    <div class="contact-links">
+      <a href="https://www.fiverr.com/users/mir_khalil317" target="_blank" class="contact-link"><div class="contact-link-icon"><svg width="16" height="16" fill="none" stroke="rgba(255,255,255,.8)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div><div><span class="contact-link-label">Fiverr</span><span class="contact-link-value">fiverr.com/mir_khalil317</span></div></a>
+      <a href="mailto:mirkhalilrehman@gmail.com" class="contact-link"><div class="contact-link-icon"><svg width="16" height="16" fill="none" stroke="rgba(255,255,255,.8)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><span class="contact-link-label">Email</span><span class="contact-link-value">mirkhalilrehman@gmail.com</span></div></a>
+      <a href="https://www.linkedin.com/in/mir-khalil-ur-rehman-574a57232/" target="_blank" class="contact-link"><div class="contact-link-icon"><svg width="16" height="16" fill="rgba(255,255,255,.8)" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></div><div><span class="contact-link-label">LinkedIn</span><span class="contact-link-value">Mir Khalil Ur Rehman</span></div></a>
+    </div>
+  </div>
+</div>
+
+<footer>© 2026 Mir Khalil Ur Rehman · AI Engineer · Karachi, Pakistan</footer>
+
+<script>
+const img = document.querySelector('.profile-photo');
+if(img) {
+  img.onerror = function(){
+    this.style.display='none';
+    this.nextElementSibling.style.display='flex';
+  };
+}
+</script>
+</body>
+</html>
